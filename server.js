@@ -38,6 +38,6 @@ app.get("/api/rappers/:rapperName", (request, response) => {
   response.json(rappers[rapName]);
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
