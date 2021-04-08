@@ -8,6 +8,8 @@ let db,
   dbConnectionStr = process.env.DB_STRING,
   dbName = "rap";
 
+console.log("This is the value of dbConnectionStr", dbConnectionStr);
+
 MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true }).then(
   (client) => {
     console.log(`Connected to ${dbName} Database`);
