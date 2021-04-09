@@ -8,7 +8,7 @@ let db,
   dbConnectionStr = process.env.DB_STRING,
   dbName = "rapper-api";
 
-console.log("This is the value of dbConnectionStr", dbConnectionStr);
+console.log(`This is the value of dbConnectionStr ${dbConnectionStr}`);
 
 MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true }).then(
   (client) => {
