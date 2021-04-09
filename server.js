@@ -6,7 +6,7 @@ require("dotenv").config();
 
 let db,
   dbConnectionStr = process.env.DB_STRING,
-  dbName = "rap";
+  dbName = "rapper-api";
 
 console.log("This is the value of dbConnectionStr", dbConnectionStr);
 
