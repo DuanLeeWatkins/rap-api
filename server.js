@@ -33,17 +33,6 @@ app.get("/", (request, response) => {
     .catch((error) => console.error(error));
 });
 
-app.get("/api/rappers/:rapperName", (request, response) => {
-  const rapName = request.params.rapperName.toLowerCase();
-  console.log(rapName);
-  if (rappers[rapName]) {
-    return response.json(rappers[rapName]);
-  } else {
-    response.json(rappers["dylan"]);
-  }
-  response.json(rappers[rapName]);
-});
-
 app.post("/addRapper", (request, response) => {
   db.collection("rappers")
     .insertOne({
@@ -79,6 +68,16 @@ app.put("/addOneLike", (request, response) => {
     .then((result) => {
       console.log("Added One Like");
       response.json("Like Added");
+    })
+    .catch((error) => console.error(error));
+});
+
+app.delete("/deleteRapper", (request, response) => {
+  db.collection("rappers")
+    .deleteOne({ stageName: request.body.stageNameS })
+    .then((result) => {
+      console.log("Rapper Deleted");
+      response.json("Rapper Deleted");
     })
     .catch((error) => console.error(error));
 });
